@@ -8,5 +8,7 @@ const Category = Router();
 Category.use(TOKEN);
 
 Category.post('/', CategoryControler.createCategory);
+
+Category.get('/', CategoryControler.getAll);
  
 module.exports = Category; 
