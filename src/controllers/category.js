@@ -5,6 +5,7 @@ const createCategory = async (req, res) => {
   const { name } = req.body;
   try {
     const result = await categoryService.createCategory(name);
+    console.log(result);
     res.status(httpStatus.created).json(result);
   } catch (err) {
     res.status(httpStatus[err.code]).json({ message: err.message });

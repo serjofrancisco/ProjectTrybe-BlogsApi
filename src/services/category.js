@@ -1,28 +1,26 @@
-const Joi = require('joi');
+// const Joi = require('joi');
 const { Category } = require('../database/models');
 
-const schema = Joi.object({
-    name: Joi.string().required(),
-});
+// const schema = Joi.object({
+//     name: Joi.string().required(),
+// });
 
-const createCategory = async (nome) => {
-    const { error } = schema.validate(nome);
-
-    if (error) {
-        const err = new Error(error.message);
+const createCategory = async (name) => {
+    if (!name) {
+        const err = new Error('"name" is required');
         err.code = 'badRequest';
         throw err;  
     }
 
-    const category = await Category.create({ nome });
-    const { id, name } = category.dataValues;
+    const category = await Category.create({ name });
+    const { id } = category.dataValues;
 
     return {
         id,
         name,
     };
 };
-
+ 
 const getAll = async () => {
     const categories = await Category.findAll();
     return categories;
