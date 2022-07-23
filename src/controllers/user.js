@@ -10,5 +10,9 @@ const createUser = async (req, res) => {
     res.status(httpStatus[err.code]).json({ message: err.message });
   }
 };
+const getAll = async (_req, res) => {
+  const users = await userService.getAll();
+  res.status(200).json(users);
+};
 
-module.exports = { createUser };
+module.exports = { createUser, getAll };
