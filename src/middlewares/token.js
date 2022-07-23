@@ -1,14 +1,18 @@
 const Jwt = require('../services/jwt.service');
+const httpStatus = require('../helpers/statusCode');
 
-const token = (req) => {
+const token = (req, res, next) => {
     const { authorization } = req.headers;
     if (!authorization) {
-        const err = new Error('Token not found');
-        err.code = 'Unauthorized';
-        throw err;
+        res.status(httpStatus.badRequest).json({ message: 'Token not found' });
       }
-      const validToken = Jwt.validateToken(authorization);
-      req.user = validToken;
+      try {
+       const validToken = Jwt.validateToken(authorization);
+       req.user = validToken;
+       next();
+      } catch (err) {
+        res.status(httpStatus.badRequest).json({ message: err.message });
+      }
 };
 
 module.exports = token;

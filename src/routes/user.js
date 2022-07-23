@@ -6,7 +6,9 @@ const UserController = require('../controllers/user');
 const User = Router();
 
 User.post('/', UserController.createUser);
+ 
+User.use(TOKEN);
 
-User.get('/', TOKEN, UserController.getAll);
+User.get('/', UserController.getAll);
 
 module.exports = User; 

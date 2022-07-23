@@ -19,7 +19,7 @@ const validateToken = (token) => {
       const e = new Error('Expired or invalid token');
       e.code = 'unauthorized';
       throw e;
-    }
+    } 
 };
 
 module.exports = { createToken, validateToken };
