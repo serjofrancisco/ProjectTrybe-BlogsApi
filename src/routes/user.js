@@ -11,4 +11,6 @@ User.use(TOKEN);
 
 User.get('/', UserController.getAll);
 
+User.get('/:id', UserController.getById);
+
 module.exports = User; 

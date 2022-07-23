@@ -15,4 +15,14 @@ const getAll = async (_req, res) => {
   res.status(httpStatus.success).json(users);
 };
 
-module.exports = { createUser, getAll };
+const getById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await userService.getById(id);
+    res.status(httpStatus.success).json(user);
+  } catch (err) { 
+    res.status(httpStatus[err.code]).json({ message: err.message });
+  }
+};
+
+module.exports = { createUser, getAll, getById };
