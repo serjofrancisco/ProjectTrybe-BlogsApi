@@ -17,7 +17,7 @@ const validateToken = (token) => {
       return data;
     } catch (_err) {
       const e = new Error('Expired or invalid token');
-      e.code = 'Unauthorized';
+      e.code = 'unauthorized';
       throw e;
     }
 };
