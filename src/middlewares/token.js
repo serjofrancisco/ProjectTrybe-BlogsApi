@@ -11,7 +11,6 @@ const token = (req, res, next) => {
        req.user = validToken;
        next();
       } catch (err) {
-        console.log('aqui');
         res.status(httpStatus[err.code]).json({ message: err.message });
       }
 };
