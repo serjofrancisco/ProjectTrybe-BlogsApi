@@ -34,10 +34,9 @@ const createPost = async (title, content, categoryIds, user) => {
     const t = await sequelize.transaction();
     try {
         const { id } = await User.findOne({ where: { email: user } }, { transaction: t });
-        const { count } = await Category
+        await Category
         .findAndCountAll({ where: { id: categoryIds } }, { transaction: t });
 
-        if (!count) errorFunction('badRequest', '"categoryIds" not found');
         const post = await BlogPost.create({ title, content, userId: id }, { transaction: t });
         await Promise.all(categoryIds.map((item) => PostCategory
         .create({ postId: post.id, categoryId: item }, { transaction: t })));
@@ -47,6 +46,7 @@ const createPost = async (title, content, categoryIds, user) => {
             return result;
     } catch (err) {
         await t.rollback();
+        errorFunction('badRequest', '"categoryIds" not found');
     }
 };
 
