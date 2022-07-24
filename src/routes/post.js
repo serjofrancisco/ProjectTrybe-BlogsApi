@@ -9,4 +9,8 @@ Post.use(TOKEN);
 
 Post.post('/', PostController.createPost);
 
+Post.get('/', PostController.getAll);
+
+Post.get('/:id', PostController.getById);
+
 module.exports = Post; 
