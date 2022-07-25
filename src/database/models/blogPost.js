@@ -50,10 +50,10 @@
         foreignKey: 'userId',
         as: 'user',
       });
-      BlogPost.hasMany(models.PostCategory, {
-        foreignKey: 'postId',
-        as: 'postCategories',
-      });
+      // BlogPost.hasMany(models.PostCategory, {
+      //   foreignKey: 'postId',
+      //   as: 'postCategories',
+      // });
     }
     return BlogPost;
   };

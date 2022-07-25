@@ -18,13 +18,13 @@
     }, {
       tableName: 'Categories'
     })
-    Category.associate = (models) => {
-      Category.hasMany(models.PostCategory, {
-        foreignKey: 'categoryId',
-        as: 'postCategories',
-      });
+    // Category.associate = (models) => {
+    //   Category.hasMany(models.PostCategory, {
+    //     foreignKey: 'categoryId',
+    //     as: 'postCategories',
+    //   });
   
-    }
+    // }
     return Category;
   };
 
