@@ -2,58 +2,10 @@
   "requirements": [
     {
       "bonus": false,
-      "description": "6 - Sua aplicação deve ter o endpoint GET `/user/:id`",
-      "enabled": true,
-      "identifier": null,
-      "order": 6,
-      "skill_ids": []
-    },
-    {
-      "bonus": false,
-      "description": "9 - Sua aplicação deve ter o endpoint GET `/categories`",
-      "enabled": true,
-      "identifier": null,
-      "order": 9,
-      "skill_ids": []
-    },
-    {
-      "bonus": false,
-      "description": "3 - Sua aplicação deve ter o endpoint POST `/login`",
-      "enabled": true,
-      "identifier": null,
-      "order": 3,
-      "skill_ids": []
-    },
-    {
-      "bonus": false,
-      "description": "10 - Crie o modelo 'BlogPost' em 'src/database/models/blogPost.js' com as propriedades e associações corretas",
-      "enabled": true,
-      "identifier": null,
-      "order": 10,
-      "skill_ids": []
-    },
-    {
-      "bonus": false,
       "description": "1 - Crie migrations para as entidades User, Categories, BlogPosts e PostCategories",
       "enabled": true,
       "identifier": null,
       "order": 1,
-      "skill_ids": []
-    },
-    {
-      "bonus": false,
-      "description": "4 - Sua aplicação deve ter o endpoint POST `/user`",
-      "enabled": true,
-      "identifier": null,
-      "order": 4,
-      "skill_ids": []
-    },
-    {
-      "bonus": false,
-      "description": "12 - Sua aplicação deve ter o endpoint POST `/post`",
-      "enabled": true,
-      "identifier": null,
-      "order": 12,
       "skill_ids": []
     },
     {
@@ -66,10 +18,34 @@
     },
     {
       "bonus": false,
+      "description": "3 - Sua aplicação deve ter o endpoint POST `/login`",
+      "enabled": true,
+      "identifier": null,
+      "order": 3,
+      "skill_ids": []
+    },
+    {
+      "bonus": false,
+      "description": "4 - Sua aplicação deve ter o endpoint POST `/user`",
+      "enabled": true,
+      "identifier": null,
+      "order": 4,
+      "skill_ids": []
+    },
+    {
+      "bonus": false,
       "description": "5 - Sua aplicação deve ter o endpoint GET `/user`",
       "enabled": true,
       "identifier": null,
       "order": 5,
+      "skill_ids": []
+    },
+    {
+      "bonus": false,
+      "description": "6 - Sua aplicação deve ter o endpoint GET `/user/:id`",
+      "enabled": true,
+      "identifier": null,
+      "order": 6,
       "skill_ids": []
     },
     {
@@ -82,10 +58,26 @@
     },
     {
       "bonus": false,
-      "description": "13 - Sua aplicação deve ter o endpoint GET `/post`",
+      "description": "8 - Sua aplicação deve ter o endpoint POST `/categories`",
       "enabled": true,
       "identifier": null,
-      "order": 13,
+      "order": 8,
+      "skill_ids": []
+    },
+    {
+      "bonus": false,
+      "description": "9 - Sua aplicação deve ter o endpoint GET `/categories`",
+      "enabled": true,
+      "identifier": null,
+      "order": 9,
+      "skill_ids": []
+    },
+    {
+      "bonus": false,
+      "description": "10 - Crie o modelo 'BlogPost' em 'src/database/models/blogPost.js' com as propriedades e associações corretas",
+      "enabled": true,
+      "identifier": null,
+      "order": 10,
       "skill_ids": []
     },
     {
@@ -98,10 +90,34 @@
     },
     {
       "bonus": false,
-      "description": "8 - Sua aplicação deve ter o endpoint POST `/categories`",
+      "description": "12 - Sua aplicação deve ter o endpoint POST `/post`",
       "enabled": true,
       "identifier": null,
-      "order": 8,
+      "order": 12,
+      "skill_ids": []
+    },
+    {
+      "bonus": false,
+      "description": "13 - Sua aplicação deve ter o endpoint GET `/post`",
+      "enabled": true,
+      "identifier": null,
+      "order": 13,
+      "skill_ids": []
+    },
+    {
+      "bonus": false,
+      "description": "14 - Sua aplicação deve ter o endpoint GET `post/:id`",
+      "enabled": true,
+      "identifier": null,
+      "order": 14,
+      "skill_ids": []
+    },
+    {
+      "bonus": false,
+      "description": "15 - Sua aplicação deve ter o endpoint PUT `/post/:id`",
+      "enabled": true,
+      "identifier": null,
+      "order": 15,
       "skill_ids": []
     },
     {
@@ -126,22 +142,6 @@
       "enabled": true,
       "identifier": null,
       "order": 18,
-      "skill_ids": []
-    },
-    {
-      "bonus": false,
-      "description": "14 - Sua aplicação deve ter o endpoint GET `post/:id`",
-      "enabled": true,
-      "identifier": null,
-      "order": 14,
-      "skill_ids": []
-    },
-    {
-      "bonus": false,
-      "description": "15 - Sua aplicação deve ter o endpoint PUT `/post/:id`",
-      "enabled": true,
-      "identifier": null,
-      "order": 15,
       "skill_ids": []
     }
   ]
