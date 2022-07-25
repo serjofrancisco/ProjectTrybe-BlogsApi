@@ -36,7 +36,7 @@ const createPost = async (title, content, categoryIds, user) => {
         const { id } = await User.findOne({ where: { email: user } }, { transaction: t });
      await Category
         .findAndCountAll({ where: { id: categoryIds } }, { transaction: t });
-       
+         
         const post = await BlogPost.create({ title, content, userId: id }, { transaction: t });
         await Promise.all(categoryIds.map((item) => PostCategory
         .create({ postId: post.id, categoryId: item }, { transaction: t })));
@@ -46,7 +46,7 @@ const createPost = async (title, content, categoryIds, user) => {
             return result;
     } catch (err) {
         await t.rollback();
-         errorFunction('badRequest', '"categoryIds" not found');
+        errorFunction('badRequest', '"categoryIds" not found');
     }
 }; 
 
@@ -64,9 +64,9 @@ const getById = async (id) => {
     const post = await BlogPost.findOne({
         where: { id },
         include: [
-        { model: User, as: 'user', attributes: { exclude: ['password'] } },
-        { model: Category, as: 'categories', attributes: ['id', 'name'] },
-      ],
+            { model: User, as: 'user', attributes: { exclude: ['password'] } },
+            { model: Category, as: 'categories', through: { attributes: [] } },
+          ],
       });
 
       if (!post) errorFunction('notFound', 'Post does not exist');
