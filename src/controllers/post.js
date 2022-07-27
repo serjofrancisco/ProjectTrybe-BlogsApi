@@ -43,7 +43,7 @@ const removePost = async (req, res) => {
     const { id } = req.params;
     const userEmail = req.user;
     try {
-      await postService.remove(id, userEmail);
+      await postService.removePost(id, userEmail);
       res.status(204).end();
 } catch (err) {
     res.status(httpStatus[err.code]).json({ message: err.message });
