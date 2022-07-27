@@ -4,7 +4,6 @@ const httpStatus = require('../helpers/statusCode');
 const createPost = async (req, res) => {
   const { title, content, categoryIds } = req.body;
    const email = req.user;
-   console.log(req);
    try {
        const result = await postService.createPost(title, content, categoryIds, email);
        res.status(httpStatus.created).json(result);
@@ -28,4 +27,16 @@ const getById = async (req, res) => {
     }
 };
 
-module.exports = { createPost, getAll, getById };
+const editPost = async (req, res) => {
+    const { title, content } = req.body;
+    const { id } = req.params;
+    const email = req.user;
+    try {
+        const result = await postService.editPost(title, content, id, email);
+        res.status(httpStatus.success).json(result);
+    } catch (err) {
+        res.status(httpStatus[err.code]).json({ message: err.message }); 
+    }
+};
+
+module.exports = { createPost, getAll, getById, editPost };

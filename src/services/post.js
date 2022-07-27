@@ -2,6 +2,8 @@ const Sequelize = require('sequelize');
 const Joi = require('joi');
 const { User, Category, BlogPost, PostCategory } = require('../database/models');
 const config = require('../database/config/config');
+
+const { Op } = Sequelize;
 // const Jwt = require('./jwt.service');
 const sequelize = new Sequelize(config.development);
 
@@ -73,4 +75,25 @@ const getById = async (id) => {
       return post;
 };
 
-module.exports = { createPost, getAll, getById };
+const editPost = async (title, content, id, email) => {
+    const { error } = schema.validate({ title, content });
+    if (error) errorFunction('badRequest', 'Some required fields are missing');
+    const user = await User.findOne({ where: { email } });
+    const post = await BlogPost.findAll({
+        where: { [Op.and]: [{ id }, { userId: user.id }] } });
+
+    if (!post) errorFunction('unauthorized', 'Unauthorized user');
+
+    await BlogPost.update({ title, content }, { where: { id } });
+
+    const result = await BlogPost.findOne({
+        where: { id },
+        include: [
+          { model: User, as: 'user', attributes: { exclude: ['password'] } },
+          { model: Category, as: 'categories', through: { attributes: [] } },
+        ],
+      });
+      return result;
+};
+
+module.exports = { createPost, getAll, getById, editPost };
