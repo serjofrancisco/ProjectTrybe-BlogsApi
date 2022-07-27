@@ -82,7 +82,7 @@ const editPost = async (title, content, id, email) => {
     const post = await BlogPost.findAll({
         where: { [Op.and]: [{ id }, { userId: user.id }] } });
 
-    if (!post) errorFunction('unauthorized', 'Unauthorized user');
+    if (post.length === 0) errorFunction('unauthorized', 'Unauthorized user');
 
     await BlogPost.update({ title, content }, { where: { id } });
 
