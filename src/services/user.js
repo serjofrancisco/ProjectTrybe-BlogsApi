@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const { User, BlogPost, PostCategory } = require('../database/models');
+const { User } = require('../database/models');
 const Jwt = require('./jwt.service');
 
 const schema = Joi.object({
