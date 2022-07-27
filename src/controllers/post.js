@@ -41,9 +41,9 @@ const editPost = async (req, res) => {
 
 const removePost = async (req, res) => {
     const { id } = req.params;
-    const userEmail = req.user;
+    const email = req.user;
     try {
-      await postService.removePost(id, userEmail);
+      await postService.removePost(id, email);
       res.status(httpStatus.noContent).end();
 } catch (err) {
     res.status(httpStatus[err.code]).json({ message: err.message });
