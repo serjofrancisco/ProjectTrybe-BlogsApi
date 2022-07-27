@@ -11,6 +11,8 @@ User.use(TOKEN);
 
 User.get('/', UserController.getAll);
 
+User.delete('/me', UserController.removeUser);
+
 User.get('/:id', UserController.getById);
 
 module.exports = User; 

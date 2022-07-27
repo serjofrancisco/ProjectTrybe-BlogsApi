@@ -46,6 +46,9 @@ const removePost = async (req, res) => {
       await postService.removePost(id, email);
       res.status(httpStatus.noContent).end();
 } catch (err) {
+    if (!err.code) {
+       return res.status(500).json({ message: err.message });
+    }
     res.status(httpStatus[err.code]).json({ message: err.message });
 }
 };

@@ -25,4 +25,17 @@ const getById = async (req, res) => {
   }
 };
 
-module.exports = { createUser, getAll, getById };
+const removeUser = async (req, res) => {
+  try {
+    const email = req.user;
+    await userService.removeUser(email);
+    res.status(httpStatus.noContent).end();
+  } catch (err) {
+    if (!err.code) {
+      return res.status(500).json({ message: err.message });
+    }
+    res.status(httpStatus[err.code]).json({ message: err.message });
+  }
+};
+
+module.exports = { createUser, getAll, getById, removeUser };

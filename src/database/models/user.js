@@ -27,10 +27,10 @@ const createUserModel = (sequelize, DataTypes) => {
       foreignKey: 'userId',
       as: 'blogPosts',
     });
-    User.hasMany(models.PostCategory, {
-      foreignKey: 'userId',
-      as: 'postCategories',
-    });
+  //   User.hasMany(models.PostCategory, {
+  //     foreignKey: 'userId',
+  //     as: 'postCategories',
+  //   });
   }
   return User;
 };
