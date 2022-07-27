@@ -96,4 +96,21 @@ const editPost = async (title, content, id, email) => {
       return result;
 };
 
-module.exports = { createPost, getAll, getById, editPost };
+const removePost = async (id, email) => {
+    const post = await BlogPost.findOne({ where: { id } });
+
+    if (!post) errorFunction('notFound', 'Post does not exist'); 
+  
+    const user = await User.findOne({ where: { email } });
+  
+    const verifyUser = await BlogPost.findAll({
+      where: { [Op.and]: [{ id }, { userId: user.id }] } });
+  
+    if (verifyUser.length === 0) errorFunction('unauthorized', 'Unauthorized user');
+
+    await BlogPost.destroy({ where: { id } });
+
+    return true;
+};
+
+module.exports = { createPost, getAll, getById, editPost, removePost };
