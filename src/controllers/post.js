@@ -53,4 +53,17 @@ const removePost = async (req, res) => {
 }
 };
 
-module.exports = { createPost, getAll, getById, editPost, removePost };
+const searchPost = async (req, res) => {
+    const { q } = req.query;
+    try {
+        const result = await postService.searchPost(q);
+        res.status(httpStatus.success).json(result);
+    } catch (err) {
+        if (!err.code) {
+            return res.status(500).json({ message: err.message });
+         }
+         res.status(httpStatus[err.code]).json({ message: err.message });
+    }
+};
+
+module.exports = { createPost, getAll, getById, editPost, removePost, searchPost };

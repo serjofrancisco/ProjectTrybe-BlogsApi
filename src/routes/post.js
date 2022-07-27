@@ -11,6 +11,8 @@ Post.post('/', PostController.createPost);
 
 Post.get('/', PostController.getAll);
 
+Post.get('/search', PostController.searchPost);
+
 Post.put('/:id', PostController.editPost);
 
 Post.get('/:id', PostController.getById);
