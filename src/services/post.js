@@ -107,7 +107,7 @@ const removePost = async (id, email) => {
       where: { [Op.and]: [{ id }, { userId: user.id }] } });
   
     if (verifyUser.length === 0) errorFunction('unauthorized', 'Unauthorized user');
-
+    await PostCategory.destroy({ where: { postId: id } });
     await BlogPost.destroy({ where: { id } });
 
     return true;
