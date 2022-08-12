@@ -40,8 +40,8 @@ $ npm run debug
 ## 🛠 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
-  **[Node.js](https://nodejs.org/en/)**
-    **[Express](https://expressjs.com/)**
+-  **[Node.js](https://nodejs.org/en/)**
+-    **[Express](https://expressjs.com/)**
 -   **[Sequelize](https://sequelize.org/)**
 -   **[dotENV](https://github.com/motdotla/dotenv)**
 -   **[Docker](https://www.docker.com/)**
