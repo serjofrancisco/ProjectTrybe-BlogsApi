@@ -5,8 +5,7 @@
 
 ## 💻 Sobre o projeto
 
-Uma Api de Blogs que permite cadastrar usuários, criar posts, logar, modificar posts e deletar usuários e posts. 
-Para todas essas coisas é necessário um usuário logado e este usuário pode modificar e deletas apenas os conteudos que pertencem a ele.
+Uma Api de Blogs que permite cadastrar usuários, criar posts, logar, modificar posts e deletar usuários e posts. Para todas essas coisas, é necessário um usuário logado e este usuário pode modificar e deletar apenas os conteúdos que lhe pertencem.
 
 ---
 ## 🚀 Como executar o projeto
